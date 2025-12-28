@@ -1,0 +1,5 @@
+eitaa
+requests
+python-dotenv
+groq
+redis

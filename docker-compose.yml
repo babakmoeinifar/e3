@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  crawler:
+    build: .
+    container_name: eitaa-crawler
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    volumes:
+      - ./sessions:/app/sessions
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: eitaa-redis
+    ports:
+      - "6379:6379"
